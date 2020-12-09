@@ -115,4 +115,18 @@
         <item>61</item>
         <item>10</item>
     </string-array>
+
+    <string name="title_buildsrc">buildSrc</string>
+    <string name="search_user">Search User</string>
+    <string name="dummy">Dummy</string>
+    <string name="follower">Followers</string>
+    <string name="following">Following</string>
+    <string name="toolbar_detail">Detail User</string>
+    <string name="tab_text_following">Following</string>
+    <string name="tab_text_followers">Followers</string>
+    <string name="does_not_exist">Does Not Exist</string>
+    <string name="empty_followers">Empty Followers</string>
+    <string name="empty_following">Empty Following</string>
+
+
 </resources>

@@ -1,9 +1,10 @@
-package com.moichsan.githubusers
+package com.moichsan.githubusers.ui.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.moichsan.githubusers.R
 
 class SplashActivity : AppCompatActivity() {
 

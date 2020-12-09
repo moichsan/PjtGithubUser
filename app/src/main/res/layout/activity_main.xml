@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    tools:context=".ui.home.MainActivity">
 
-    <ListView
-        android:id="@+id/lv_list"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sc_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:iconifiedByDefault="false"
+        app:queryHint="@string/search_user" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/users_item" />
+        android:layout_below="@id/sc_view"
+        android:layout_marginTop="16dp"/>
 
+    <ProgressBar
+        android:id="@+id/pb_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
-</LinearLayout>
+</RelativeLayout>
