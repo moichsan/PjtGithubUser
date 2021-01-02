@@ -1,6 +1,9 @@
 package com.moichsan.githubusers.ui.detail
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,11 +21,14 @@ import org.jetbrains.anko.toast
 class DetailActivity : BaseActivity() {
 
     private lateinit var viewModel: DetailFollViewModel
+    private lateinit var items: Items
+    private var menuItem: Menu? = null
+    private var isFavorite: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        setupToolbar(aw_toolbar, resources.getString(R.string.toolbar_detail))
+        setupToolbar(aw_toolbar, resources.getString(R.string.toolbar_detail),true)
 
         setupViewPager()
         getData()
@@ -45,7 +51,11 @@ class DetailActivity : BaseActivity() {
     private fun observeViewModel() {
         with(viewModel) {
             onDetail.observe(this@DetailActivity, Observer {
+                items = it
                 setUI(it)
+                isFavorite = viewModel.checkFavorite(it.id?:0, this@DetailActivity)
+                setFavorite()
+                menuItem?.getItem(0)?.isVisible = true
             })
             netState.observe(this@DetailActivity, Observer {
                 when (it) {
@@ -66,11 +76,42 @@ class DetailActivity : BaseActivity() {
     }
 
     private fun setUI(items: Items?) {
-        ig_photo.load(items?.avatar)
+        ig_photo.load(items?.avatar_url)
         tv_username.text = items?.login
-        tv_following.text = items?.following
-        tv_follower.text = items?.followers
-
-
+        tv_follower.text = items?.followers.toString()
+        tv_following.text = items?.following.toString()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_toolbar, menu)
+        menuItem = menu
+        menu?.getItem(0)?.isVisible = false
+        setFavorite()
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.act_favorite -> {
+                if (isFavorite) {
+                    items.id?.let { viewModel.removeFavorite(it, this) }
+                } else {
+                    viewModel.addToFavorite(items, this)
+                }
+                isFavorite = viewModel.checkFavorite(items.id ?: 0, this)
+                setFavorite()
+            }
+        }
+        return true
+    }
+
+    private fun setFavorite() {
+        if (isFavorite) {
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorited)
+        } else {
+            menuItem?.getItem(0)?.icon = ContextCompat.getDrawable(this, R.drawable.ic_favorite)
+        }
+    }
+
+
 }

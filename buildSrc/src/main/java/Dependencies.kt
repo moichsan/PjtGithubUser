@@ -47,6 +47,9 @@ object Versions {
     //Anko
     const val anko = "0.10.8"
 
+    //Room
+    const val roomVersion = "2.2.3"
+
 }
 
 object Release {
@@ -97,5 +100,11 @@ object Architectures {
     const val lifeCycleExtension = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifeCycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
 }
+
+object Room{
+    const val roomRuntime = "androidx.room:room-runtime:${Versions.roomVersion}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
+}
+
 
 

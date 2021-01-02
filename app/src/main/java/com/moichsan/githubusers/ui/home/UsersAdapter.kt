@@ -22,7 +22,7 @@ class UsersAdapter(private val listener: (String) -> Unit) :
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Items?, listener: (String) -> Unit) = with(itemView) {
-            ig_users.load(item?.avatar)
+            ig_users.load(item?.avatar_url)
             tv_nickname.text = item?.login
             setOnClickListener { listener(item?.login ?: "nickname") }
 

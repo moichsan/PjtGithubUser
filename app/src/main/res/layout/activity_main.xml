@@ -7,25 +7,62 @@
     android:orientation="vertical"
     tools:context=".ui.home.MainActivity">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/sc_view"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:iconifiedByDefault="false"
-        app:queryHint="@string/search_user" />
-    
+        android:layout_height="60dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/sc_view"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toStartOf="@+id/iv_setting"
+                android:iconifiedByDefault="false"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null"
+                app:queryHint="Search All Github User" />
+
+            <ImageView
+                android:id="@+id/iv_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:src="@drawable/ic_settings_black_24dp" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/sc_view"
-        android:layout_marginTop="16dp"/>
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="8dp" />
 
     <ProgressBar
         android:id="@+id/pb_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="40dp"
+        android:src="@drawable/ic_favorited" />
 
 </RelativeLayout>
