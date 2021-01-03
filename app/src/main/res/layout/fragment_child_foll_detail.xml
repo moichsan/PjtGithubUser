@@ -16,4 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
 
+    <include layout="@layout/user_not_exist"
+        android:visibility="gone"/>
+
 </RelativeLayout>

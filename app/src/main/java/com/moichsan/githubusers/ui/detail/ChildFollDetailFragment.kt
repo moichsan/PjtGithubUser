@@ -15,6 +15,7 @@ import com.moichsan.githubusers.util.hide
 import com.moichsan.githubusers.util.show
 import kotlinx.android.synthetic.main.fragment_child_foll_detail.*
 import kotlinx.android.synthetic.main.user_not_exist.*
+
 import org.jetbrains.anko.support.v4.startActivity
 import org.jetbrains.anko.support.v4.toast
 

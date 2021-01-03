@@ -1,5 +1,6 @@
 object ApplicationId {
     const val id = "com.moichsan.githubusers"
+    const val idConsumerApp = "com.moichsan.consumerapp"
 }
 
 object Dependencies {

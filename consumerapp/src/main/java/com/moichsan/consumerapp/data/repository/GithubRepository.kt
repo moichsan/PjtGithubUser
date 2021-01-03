@@ -1,6 +1,7 @@
 package com.moichsan.consumerapp.data.repository
 
 import android.content.Context
+import android.util.Log
 import androidx.core.net.toUri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,6 +24,7 @@ class GithubRepository {
         val liveData = MutableLiveData<List<Items>>()
         val cursor = context.contentResolver.query(FAVORITE_URI.toUri(), null, null, null, null)
         cursor?.let {
+            Log.i("status", "sukses")
             liveData.postValue(it.toListFavoriteModel())
             cursor.close()
         }

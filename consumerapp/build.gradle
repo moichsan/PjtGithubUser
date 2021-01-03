@@ -8,7 +8,7 @@ android {
     compileSdkVersion Versions.compiledSdk
 
     defaultConfig {
-        applicationId ApplicationId.id
+        applicationId ApplicationId.idConsumerApp
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
         versionCode Versions.versionCode
@@ -81,6 +81,4 @@ dependencies {
     //Room
     implementation Room.roomRuntime
     kapt Room.roomCompiler
-    implementation 'androidx.room:room-runtime:2.1.0'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0'
 }
