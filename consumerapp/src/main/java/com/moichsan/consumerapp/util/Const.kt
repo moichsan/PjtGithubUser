@@ -20,7 +20,7 @@ object Const {
     const val COLUMN_FOLLOWING = "following"
 
     //URI Content Provider
-    private const val URI_AUTHORITY = "com.moichsan.consumerapp"
+    private const val URI_AUTHORITY = "com.moichsan.githubusers"
     private const val SCHEME = "content"
     const val FAVORITE_URI = "$SCHEME://$URI_AUTHORITY/$TABLE_NAME"
 }

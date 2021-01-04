@@ -3,10 +3,10 @@
     package="com.moichsan.consumerapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <permission
+    <uses-permission
         android:name="com.moichsan.githubusers.READ_DATABASE"
         android:protectionLevel="normal" />
-    <permission
+    <uses-permission
         android:name="com.moichsan.githubusers.WRITE_DATABASE"
         android:protectionLevel="normal" />
 

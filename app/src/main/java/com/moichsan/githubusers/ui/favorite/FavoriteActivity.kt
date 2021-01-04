@@ -1,6 +1,7 @@
 package com.moichsan.githubusers.ui.favorite
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,8 +44,10 @@ class FavoriteActivity : BaseActivity() {
         with(viewModel) {
             getAllLocalData(this@FavoriteActivity).observe(this@FavoriteActivity, Observer {
                 if (!it.isNullOrEmpty()) {
+                    Log.i("sts", it[0].login.toString())
                     rl_user_not_exist.hide()
                 } else {
+                    Log.i("sts", "kosong")
                     rl_user_not_exist.show()
                     tv_user_not_exist.text = resources.getString(R.string.empty_favorite)
                 }
